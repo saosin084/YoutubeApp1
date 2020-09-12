@@ -8,13 +8,40 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    let imageName = "cat"
+    let titles = "aaaaaaaaaaaaaaaaaaaaaa"
+    let channel = "bbbbbbbbbbbbbbbbbbb"
+    let views = "10000回"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
+        return 10
+    
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        
+        cell.mainImage.image = UIImage(named: imageName)
+        cell.titleLabel.text = titles
+        cell.channelLabel.text = channel
+        cell.viewsLabel.text = views
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 180
+ 
+    }
 }
 
