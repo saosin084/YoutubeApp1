@@ -58,11 +58,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpd-Y1-thD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="playButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hFW-Hy-FMj"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="channelLabel" destination="dIY-ya-LrA" id="dEe-uW-9Kl"/>
-                                            <outlet property="mainImage" destination="9JX-Qb-bHv" id="Kzm-vj-D77"/>
+                                            <outlet property="mainImage" destination="9JX-Qb-bHv" id="5Ru-Jg-R08"/>
                                             <outlet property="titleLabel" destination="yCy-2r-wOe" id="ELD-SC-xPg"/>
                                             <outlet property="viewsLabel" destination="w8U-0E-6bT" id="kSf-8I-yD5"/>
                                         </connections>
@@ -77,10 +84,44 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="Gmc-Kn-1Y0" kind="presentation" identifier="next" modalPresentationStyle="fullScreen" id="YKS-fU-atG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="AJB-5m-VKb">
+            <objects>
+                <viewController id="Gmc-Kn-1Y0" customClass="PlayViewController" customModule="YoutubeApp1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OF7-aH-9TJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="ZoO-b8-Wb0">
+                                <rect key="frame" x="20" y="285" width="374" height="286"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRz-y2-C4R">
+                                <rect key="frame" x="20" y="59" width="52" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="Gmc-Kn-1Y0" eventType="touchUpInside" id="FyS-kc-1Cz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="b7v-cR-37O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czw-Iw-EiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950.72463768115949" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>

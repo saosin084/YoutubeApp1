@@ -11,11 +11,10 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     let imageName = "cat"
-    let titles = "aaaaaaaaaaaaaaaaaaaaaa"
-    let channel = "bbbbbbbbbbbbbbbbbbb"
+    let titles = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbcccccccccccccccccccc"
+    let channel = "xxxxxxxxxチャンネル"
     let views = "10000回"
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,6 +31,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         cell.mainImage.image = UIImage(named: imageName)
         cell.titleLabel.text = titles
+        cell.titleLabel.numberOfLines = 3
         cell.channelLabel.text = channel
         cell.viewsLabel.text = views
         
@@ -43,5 +43,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 180
  
     }
+    
+    @IBAction func playButton(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "next", sender: nil)
+        
+    }
+    
+    
 }
 

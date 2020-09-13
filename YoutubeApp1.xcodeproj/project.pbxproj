@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64978A1250E0BF100408EA0 /* PlayViewController.swift */; };
 		D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */; };
 		D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698C250CBF3B004498FE /* AppDelegate.swift */; };
 		D6CC698F250CBF3B004498FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698E250CBF3B004498FE /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D64978A1250E0BF100408EA0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC6989250CBF3B004498FE /* YoutubeApp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6CC698C250CBF3B004498FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				D6CC698E250CBF3B004498FE /* SceneDelegate.swift */,
 				D6CC6990250CBF3B004498FE /* ViewController.swift */,
 				D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */,
+				D64978A1250E0BF100408EA0 /* PlayViewController.swift */,
 				D6CC6992250CBF3B004498FE /* Main.storyboard */,
 				D6CC6995250CBF3E004498FE /* Assets.xcassets */,
 				D6CC6997250CBF3E004498FE /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6CC6991250CBF3B004498FE /* ViewController.swift in Sources */,
+				D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */,
 				D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */,
 				D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */,
 				D6CC698F250CBF3B004498FE /* SceneDelegate.swift in Sources */,
