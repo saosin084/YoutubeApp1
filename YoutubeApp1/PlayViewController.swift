@@ -10,9 +10,24 @@ import UIKit
 
 class PlayViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var channelLabel: UILabel!
+    @IBOutlet weak var viewsLabel: UILabel!
+    
+//    var imageNameArray2 = [String](repeating: "0", count: 50)
+//    var titleArray2 = [String](repeating: "0", count: 50)
+//    var channelArray2 = [String](repeating: "0", count: 50)
+//    var viewsArray2 = [String](repeating: "0", count: 50)
+    
+    var testDatas2 = [TestDataModel]()
+    var row = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        titleLabel.text = testDatas2[row].title
+        channelLabel.text = testDatas2[row].channel
+        viewsLabel.text = String(testDatas2[row].count)
         // Do any additional setup after loading the view.
     }
     
@@ -21,6 +36,8 @@ class PlayViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    
     
     /*
     // MARK: - Navigation
