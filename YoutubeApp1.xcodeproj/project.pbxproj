@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D629034E250E57A0003463DB /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629034D250E57A0003463DB /* TestDataModel.swift */; };
+		D629035C25121199003463DB /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629035B25121199003463DB /* YoutubeData.swift */; };
 		D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64978A1250E0BF100408EA0 /* PlayViewController.swift */; };
 		D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */; };
+		D67BAAAE2513826A004B7DFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BAAAD2513826A004B7DFF /* ViewController.swift */; };
+		D67BAAB025138C49004B7DFF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BAAAF25138C49004B7DFF /* TableViewController.swift */; };
 		D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698C250CBF3B004498FE /* AppDelegate.swift */; };
 		D6CC698F250CBF3B004498FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698E250CBF3B004498FE /* SceneDelegate.swift */; };
-		D6CC6991250CBF3B004498FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC6990250CBF3B004498FE /* ViewController.swift */; };
 		D6CC6994250CBF3B004498FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CC6992250CBF3B004498FE /* Main.storyboard */; };
 		D6CC6996250CBF3E004498FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6CC6995250CBF3E004498FE /* Assets.xcassets */; };
 		D6CC6999250CBF3E004498FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CC6997250CBF3E004498FE /* LaunchScreen.storyboard */; };
@@ -24,12 +26,14 @@
 		0F31671356DEFB9B41743505 /* Pods-YoutubeApp1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp1.release.xcconfig"; path = "Target Support Files/Pods-YoutubeApp1/Pods-YoutubeApp1.release.xcconfig"; sourceTree = "<group>"; };
 		7257F677AABE9DD10173C2F1 /* Pods_YoutubeApp1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeApp1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D629034D250E57A0003463DB /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
+		D629035B25121199003463DB /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeData.swift; sourceTree = "<group>"; };
 		D64978A1250E0BF100408EA0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		D67BAAAD2513826A004B7DFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D67BAAAF25138C49004B7DFF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = /Users/yuta/develop/YoutubeApp1/YoutubeApp1/TableViewController.swift; sourceTree = "<absolute>"; };
 		D6CC6989250CBF3B004498FE /* YoutubeApp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6CC698C250CBF3B004498FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6CC698E250CBF3B004498FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6CC6990250CBF3B004498FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D6CC6993250CBF3B004498FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6CC6995250CBF3E004498FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6CC6998250CBF3E004498FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,7 +58,6 @@
 				07CBE1C9E2B1DE0789F9D1AE /* Pods-YoutubeApp1.debug.xcconfig */,
 				0F31671356DEFB9B41743505 /* Pods-YoutubeApp1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,13 +90,15 @@
 		D6CC698B250CBF3B004498FE /* YoutubeApp1 */ = {
 			isa = PBXGroup;
 			children = (
+				D629035B25121199003463DB /* YoutubeData.swift */,
 				D6CC698C250CBF3B004498FE /* AppDelegate.swift */,
 				D6CC698E250CBF3B004498FE /* SceneDelegate.swift */,
-				D6CC6990250CBF3B004498FE /* ViewController.swift */,
 				D629034D250E57A0003463DB /* TestDataModel.swift */,
 				D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */,
 				D64978A1250E0BF100408EA0 /* PlayViewController.swift */,
+				D67BAAAF25138C49004B7DFF /* TableViewController.swift */,
 				D6CC6992250CBF3B004498FE /* Main.storyboard */,
+				D67BAAAD2513826A004B7DFF /* ViewController.swift */,
 				D6CC6995250CBF3E004498FE /* Assets.xcassets */,
 				D6CC6997250CBF3E004498FE /* LaunchScreen.storyboard */,
 				D6CC699A250CBF3E004498FE /* Info.plist */,
@@ -216,11 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6CC6991250CBF3B004498FE /* ViewController.swift in Sources */,
 				D629034E250E57A0003463DB /* TestDataModel.swift in Sources */,
 				D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */,
 				D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */,
+				D67BAAB025138C49004B7DFF /* TableViewController.swift in Sources */,
+				D629035C25121199003463DB /* YoutubeData.swift in Sources */,
 				D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */,
+				D67BAAAE2513826A004B7DFF /* ViewController.swift in Sources */,
 				D6CC698F250CBF3B004498FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
