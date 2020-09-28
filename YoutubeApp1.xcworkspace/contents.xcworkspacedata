@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/yuta/develop/YoutubeApp1/YoutubeApp1/TableViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:YoutubeApp1.xcodeproj">
    </FileRef>
    <FileRef

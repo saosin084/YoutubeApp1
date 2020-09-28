@@ -12,7 +12,6 @@
 		D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64978A1250E0BF100408EA0 /* PlayViewController.swift */; };
 		D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */; };
 		D67BAAAE2513826A004B7DFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BAAAD2513826A004B7DFF /* ViewController.swift */; };
-		D67BAAB025138C49004B7DFF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67BAAAF25138C49004B7DFF /* TableViewController.swift */; };
 		D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698C250CBF3B004498FE /* AppDelegate.swift */; };
 		D6CC698F250CBF3B004498FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC698E250CBF3B004498FE /* SceneDelegate.swift */; };
 		D6CC6994250CBF3B004498FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CC6992250CBF3B004498FE /* Main.storyboard */; };
@@ -30,7 +29,6 @@
 		D64978A1250E0BF100408EA0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		D67BAAAD2513826A004B7DFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D67BAAAF25138C49004B7DFF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = /Users/yuta/develop/YoutubeApp1/YoutubeApp1/TableViewController.swift; sourceTree = "<absolute>"; };
 		D6CC6989250CBF3B004498FE /* YoutubeApp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6CC698C250CBF3B004498FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6CC698E250CBF3B004498FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				D629034D250E57A0003463DB /* TestDataModel.swift */,
 				D64A7813250CCE28000E5785 /* CustomTableViewCell.swift */,
 				D64978A1250E0BF100408EA0 /* PlayViewController.swift */,
-				D67BAAAF25138C49004B7DFF /* TableViewController.swift */,
 				D6CC6992250CBF3B004498FE /* Main.storyboard */,
 				D67BAAAD2513826A004B7DFF /* ViewController.swift */,
 				D6CC6995250CBF3E004498FE /* Assets.xcassets */,
@@ -224,7 +221,6 @@
 				D629034E250E57A0003463DB /* TestDataModel.swift in Sources */,
 				D64978A2250E0BF100408EA0 /* PlayViewController.swift in Sources */,
 				D6CC698D250CBF3B004498FE /* AppDelegate.swift in Sources */,
-				D67BAAB025138C49004B7DFF /* TableViewController.swift in Sources */,
 				D629035C25121199003463DB /* YoutubeData.swift in Sources */,
 				D64A7814250CCE28000E5785 /* CustomTableViewCell.swift in Sources */,
 				D67BAAAE2513826A004B7DFF /* ViewController.swift in Sources */,
