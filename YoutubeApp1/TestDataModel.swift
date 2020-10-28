@@ -13,13 +13,13 @@ class TestDataModel{
     var title:String
     var channel:String
     var count:Int
-    var imageName:String
+    var imageUrl:String
     
-    internal init(title: String, channel: String, count: Int, imageName: String) {
+    internal init(title: String, channel: String, count: Int, imageUrl: String) {
         self.title = title
         self.channel = channel
         self.count = count
-        self.imageName = imageName
+        self.imageUrl = imageUrl
     }
     
 }

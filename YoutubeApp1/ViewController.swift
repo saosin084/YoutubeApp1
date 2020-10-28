@@ -11,24 +11,25 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     var testDatas = [TestDataModel]()
     var videoIdArray = [String]()
-    var titleArray = [String]()
     let KEY = "AIzaSyDMmJXDbpbbBYrorPKd71VvgwDKLKeRhcc"
-    var Array = [1,2,3,4,5]
-    var countArray = [Int]()
     var youtubeURLArray = [String]()
-    
+    @IBOutlet weak var searchText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchText.delegate = self
         getData()
-        //getData2()
     }
    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.text)
+        textField.resignFirstResponder()
+        return true
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -39,18 +40,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        
-        let profileImageURL = URL(string: self.testDatas[indexPath.row].imageName as String)!
-        cell.imageView?.sd_setImage(with: profileImageURL, completed: { (image, error, _, _) in
-
-            if error == nil{
-
-                cell.setNeedsLayout()
-
-            }
-
-        })
+        let profileImageURL = URL(string: self.testDatas[indexPath.row].imageUrl as String)!
+        cell.mainImage.sd_setImage(with: profileImageURL)
         cell.titleLabel!.text = self.testDatas[indexPath.row].title
+        cell.titleLabel.numberOfLines = 3
         cell.channelLabel!.text = self.testDatas[indexPath.row].channel
         cell.viewsLabel!.text = String(self.testDatas[indexPath.row].count) + "回"
  
@@ -65,13 +58,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let indexNumber = indexPath.row
-        let webViewController = WebViewController()
-        let url = youtubeURLArray[indexNumber]
-        UserDefaults.standard.set(url, forKey: "url")
-        present(webViewController, animated: true, completion: nil)
-
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "next", sender: indexPath.row)
+            
     }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "next"{
+
+                let nextVC = segue.destination as! PlayViewController
+                let index = sender as? Int
+                nextVC.testDatas2 = testDatas
+                nextVC.youtubeURLArray2 = youtubeURLArray
+                nextVC.row = index!
+                
+            }
+    }
+
         
     func getData(){
         
@@ -118,7 +121,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                             let count = json["items"][0]["statistics"]["viewCount"].string
                                             let imageURLString = json["items"][0]["snippet"]["thumbnails"]["default"]["url"].string
                                             
-                                            let model = TestDataModel(title: title!, channel: channelTitle!, count: Int(count!)!, imageName: imageURLString!)
+                                            let model = TestDataModel(title: title!, channel: channelTitle!, count: Int(count!)!, imageUrl: imageURLString!)
                                                 
                                             self.testDatas.append(model)
 
@@ -146,37 +149,4 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.loadView()
         }
     }
-    
-    
-    
-//    func getData2(){
-//
-//        let text2 = "https://www.googleapis.com/youtube/v3/videos?id=yYyni88QG9E&key=\(KEY)&part=snippet,statistics"
-//        //ここの"id="にvideoIdArrayを入れたい
-//
-//        let url2 = text2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//
-//        AF.request(url2, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (responce) in
-//
-//            switch responce.result{
-//
-//                case .success:
-//
-//                    print("success2")
-//
-//                    let json:JSON = JSON(responce.data as Any)
-//                    let title2 = json["items"][0]["snippet"]["title"].string
-//                    self.titleArray.append(title2!)
-//                    break
-//
-//                case .failure(let error):
-//
-//                    print("error2")
-//                    break
-//
-//            }
-//            self.loadView()
-//        }
-//
-//    }
 }
