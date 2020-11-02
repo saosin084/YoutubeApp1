@@ -26,7 +26,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(textField.text)
+        getData2(search: textField.text!)
         textField.resignFirstResponder()
         return true
     }
@@ -149,4 +149,83 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.loadView()
         }
     }
+    
+    func getData2(search: String){
+        
+        var text = "https://www.googleapis.com/youtube/v3/search?key=\(KEY)&q=\(search)&part=snippet&maxResults=20&order=date"
+        
+        let url = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        videoIdArray.removeAll()
+        youtubeURLArray.removeAll()
+        testDatas.removeAll()
+        
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (responce) in
+            
+            switch responce.result{
+                
+                case .success:
+                    
+                    print("success")
+                    
+                    for i in 0 ... 19{
+                        
+                        let json:JSON = JSON(responce.data as Any)
+                        let videoId = json["items"][i]["id"]["videoId"].string
+                        let youtubeURL = "http://www.youtube.com/watch?v=\(videoId!)"
+                        self.videoIdArray.append(videoId!)
+                        self.youtubeURLArray.append(youtubeURL)
+
+                    }
+                    
+                    self.videoIdArray.forEach{ video in
+                            
+                        let text2 = "https://www.googleapis.com/youtube/v3/videos?id=\(video)&key=\(self.KEY)&part=snippet,statistics"
+                           
+                        
+                        let url2 = text2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                            
+                                AF.request(url2, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (responce) in
+                            
+                                    switch responce.result{
+                            
+                                        case .success:
+                            
+                                            print("success2")
+                            
+                                            let json:JSON = JSON(responce.data as Any)
+                                            let title = json["items"][0]["snippet"]["title"].string
+                                            let channelTitle = json["items"][0]["snippet"]["channelTitle"].string
+                                            let count = json["items"][0]["statistics"]["viewCount"].string
+                                            let imageURLString = json["items"][0]["snippet"]["thumbnails"]["default"]["url"].string
+                                            
+                                            let model = TestDataModel(title: title!, channel: channelTitle!, count: Int(count!)!, imageUrl: imageURLString!)
+                                                
+                                            self.testDatas.append(model)
+
+                                            break
+                                            
+                            
+                                        case .failure(let error2):
+                            
+                                            print("error2")
+                                            break
+                            
+                                    }
+                        self.loadView()
+                                }
+                    }
+                    
+                    break
+                
+                case .failure(let error):
+                    
+                    print("error")
+                    break
+            }
+            
+            self.loadView()
+        }
+    }
+    
 }
