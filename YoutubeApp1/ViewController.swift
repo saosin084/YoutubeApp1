@@ -15,7 +15,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var testDatas = [TestDataModel]()
     var videoIdArray = [String]()
-    let KEY = "AIzaSyDMmJXDbpbbBYrorPKd71VvgwDKLKeRhcc"
+    let KEY = "API KEY"
     var youtubeURLArray = [String]()
     var searchWord = String()
     @IBOutlet weak var searchText: UITextField!
