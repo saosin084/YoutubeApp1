@@ -17,6 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var videoIdArray = [String]()
     let KEY = "AIzaSyDMmJXDbpbbBYrorPKd71VvgwDKLKeRhcc"
     var youtubeURLArray = [String]()
+    var searchWord = String()
     @IBOutlet weak var searchText: UITextField!
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         getData2(search: textField.text!)
+        searchWord = textField.text!
         textField.resignFirstResponder()
         return true
     }
@@ -34,11 +36,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return testDatas.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
         let profileImageURL = URL(string: self.testDatas[indexPath.row].imageUrl as String)!
         cell.mainImage.sd_setImage(with: profileImageURL)
@@ -46,7 +47,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.titleLabel.numberOfLines = 3
         cell.channelLabel!.text = self.testDatas[indexPath.row].channel
         cell.viewsLabel!.text = String(self.testDatas[indexPath.row].count) + "回"
- 
+        
         return cell
         
     }
@@ -73,6 +74,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 nextVC.row = index!
                 
             }
+        if segue.identifier == "nothing"{
+            
+            let nextVC2 = segue.destination as! NothingViewController
+            nextVC2.searchWord2 = searchWord
+            
+        }
+        
     }
 
         
@@ -113,8 +121,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             
                                         case .success:
                             
-                                            print("success2")
-                            
                                             let json:JSON = JSON(responce.data as Any)
                                             let title = json["items"][0]["snippet"]["title"].string
                                             let channelTitle = json["items"][0]["snippet"]["channelTitle"].string
@@ -130,7 +136,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             
                                         case .failure(let error2):
                             
-                                            print("error2")
                                             break
                             
                                     }
@@ -172,12 +177,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         
                         let json:JSON = JSON(responce.data as Any)
                         let videoId = json["items"][i]["id"]["videoId"].string
+                        
+                        if videoId != nil{
                         let youtubeURL = "http://www.youtube.com/watch?v=\(videoId!)"
                         self.videoIdArray.append(videoId!)
                         self.youtubeURLArray.append(youtubeURL)
-
+                        }
                     }
-                    
+                    if self.videoIdArray.isEmpty{
+                        
+                        self.performSegue(withIdentifier: "nothing", sender: nil)
+                        
+                    }
                     self.videoIdArray.forEach{ video in
                             
                         let text2 = "https://www.googleapis.com/youtube/v3/videos?id=\(video)&key=\(self.KEY)&part=snippet,statistics"
@@ -190,8 +201,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     switch responce.result{
                             
                                         case .success:
-                            
-                                            print("success2")
                             
                                             let json:JSON = JSON(responce.data as Any)
                                             let title = json["items"][0]["snippet"]["title"].string
@@ -208,7 +217,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             
                                         case .failure(let error2):
                             
-                                            print("error2")
                                             break
                             
                                     }
